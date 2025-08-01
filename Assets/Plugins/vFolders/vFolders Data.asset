@@ -17,6 +17,9 @@ MonoBehaviour:
     - 109e9bdd0fcc649c5bc59085c35bdc83
     - 0220aab0833d04faeb927d84ca6cc40c
     - eb8d0b266dd2d9d4bbf1a498b1ae7fcd
+    - 445c433627483734d8fd0594bc90c30f
+    - 87a1da18cca04664c818451c4ebebbc2
+    - 2670c96ae359ef6448d45949531120b7
     values:
     - iconNameOrGuid: SceneAsset Icon
       colorIndex: 0
@@ -27,6 +30,18 @@ MonoBehaviour:
       isIconRecursive: 0
       isColorRecursive: 0
     - iconNameOrGuid: AssemblyDefinitionAsset Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: ScriptableObject Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: cs Script Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: Prefab Icon
       colorIndex: 0
       isIconRecursive: 0
       isColorRecursive: 0
