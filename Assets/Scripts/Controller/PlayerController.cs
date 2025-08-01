@@ -5,15 +5,36 @@ public class PlayerController : MonoBehaviour
     [Header("이동속도")]
     [SerializeField] float m_moveSpeed = 0.0f;
 
+    Rigidbody2D m_rb = null;
+    Animator m_animator = null;
     Vector2 m_input = Vector2.zero;
+
+    readonly int m_moveFlagHash = Animator.StringToHash("MoveFlag");
+
+    void Start()
+    {
+        Setting();
+    }
 
     void Update()
     {
-        if (GManager.Instance.IsInteractFlag) return;
+        if (GManager.Instance.IsBoundaryBattleFlag) return;
 
         HandleInput();
-        Move();
         HandleInteract();
+    }
+
+    void FixedUpdate()
+    {
+        if (GManager.Instance.IsBoundaryBattleFlag) return;
+
+        Move();
+    }
+
+    void Setting()
+    {
+        m_rb = transform.GetComponent<Rigidbody2D>();
+        m_animator = transform.Find("ViewObj").GetComponent<Animator>();
     }
 
     void HandleInput()
@@ -27,23 +48,26 @@ public class PlayerController : MonoBehaviour
     {
         if (m_input == Vector2.zero)
         {
-            // Idle Animation;
+            m_animator.SetBool(m_moveFlagHash, false);
+            m_rb.linearVelocity = Vector2.zero;
             return;
         }
 
-        transform.Translate(m_moveSpeed * Time.deltaTime * m_input);
+        m_animator.SetBool(m_moveFlagHash, true);
+        m_rb.linearVelocity = m_moveSpeed * m_input;
     }
 
     void HandleInteract()
     {
-        if (GManager.Instance.IsInteractFlag) return;
+        if (GManager.Instance.IsBoundaryBattleFlag) return;
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             // 레이어 체크해서 npc면 Interact 시작
 
             Debug.Log("Interact Start");
-            GManager.Instance.IsInteractFlag = true;
+            GManager.Instance.IsBoundaryBattleFlag = true;
+            GManager.Instance.BoundaryBattleStart();
         }
     }
 }
