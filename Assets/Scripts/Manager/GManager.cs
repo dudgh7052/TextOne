@@ -11,7 +11,7 @@ public class GManager : MonoBehaviour
     /// <summary>
     /// 인터렉팅 플래그
     /// </summary>
-    public bool IsBoundaryBattleFlag { get; set; } = false;
+    [field:SerializeField] public bool IsBoundaryBattleFlag { get; set; } = false;
 
     void Awake()
     {
