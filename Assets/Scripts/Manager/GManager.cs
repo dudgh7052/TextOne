@@ -1,13 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GManager : MonoBehaviour
 {
     public static GManager Instance { get; private set; } = null;
 
-    [SerializeField] GameObject m_playerObj = null;
-
-    [SerializeField] GameObject m_boundaryBox = null;
-    [SerializeField] GameObject m_boundaryPlayerObj = null;
+    [SerializeField] GameObject m_nonBattleObjs = null;
+    [SerializeField] GameObject m_battleObjs = null;
 
     /// <summary>
     /// 인터렉팅 플래그
@@ -31,10 +30,8 @@ public class GManager : MonoBehaviour
     {
         IsBoundaryBattleFlag = true;
 
-        m_playerObj.SetActive(false);
-
-        m_boundaryPlayerObj.transform.localPosition = Vector3.zero;
-        m_boundaryBox.SetActive(true);
+        m_nonBattleObjs.SetActive(false);
+        m_battleObjs.SetActive(true);
     }
 
     /// <summary>
@@ -44,10 +41,7 @@ public class GManager : MonoBehaviour
     {
         IsBoundaryBattleFlag = false;
 
-        m_boundaryPlayerObj.transform.localPosition = Vector3.zero;
-        m_boundaryBox.SetActive(false);
-
-        m_playerObj.SetActive(true);
-
+        m_battleObjs.SetActive(false);
+        m_nonBattleObjs.SetActive(true);
     }
 }

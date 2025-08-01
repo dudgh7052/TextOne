@@ -11,6 +11,11 @@ public class BoundaryPlayerController : MonoBehaviour
 
     readonly int m_moveFlagHash = Animator.StringToHash("MoveFlag");
 
+    void OnEnable()
+    {
+        transform.localPosition = Vector3.zero;
+    }
+
     void Start()
     {
         Setting();
@@ -21,7 +26,7 @@ public class BoundaryPlayerController : MonoBehaviour
         if (!GManager.Instance.IsBoundaryBattleFlag) return;
 
         HandleInput();
-        if (Input.GetKeyDown(KeyCode.E)) GManager.Instance.BoundaryBattleEnd();
+        if (Input.GetKeyDown(KeyCode.E)) GManager.Instance.BoundaryBattleEnd(); // 나중에 바꾸기
     }
 
     void FixedUpdate()
