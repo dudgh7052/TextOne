@@ -39,6 +39,9 @@ public class RandomSpreadShooter : MonoBehaviour
             yield return new WaitForSeconds(m_shootDelay);
         }
 
+        yield return new WaitForSeconds(1.0f);
+        GManager.Instance.CreateWord();
+
         m_shootCoroutine = null;
     }
 

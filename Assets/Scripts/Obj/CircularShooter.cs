@@ -12,17 +12,9 @@ public class CircularShooter : MonoBehaviour
 
     public void StartShooting()
     {
-        if (m_shootRoutine == null)
-            m_shootRoutine = StartCoroutine(ShootingRoutine());
-    }
+        if (m_shootRoutine != null) StopCoroutine(m_shootRoutine);
 
-    public void StopShooting()
-    {
-        if (m_shootRoutine != null)
-        {
-            StopCoroutine(m_shootRoutine);
-            m_shootRoutine = null;
-        }
+        m_shootRoutine = StartCoroutine(ShootingRoutine());
     }
 
     IEnumerator ShootingRoutine()
@@ -34,5 +26,8 @@ public class CircularShooter : MonoBehaviour
             GameObject _obj = Instantiate(m_circularBase, GManager.Instance.IsBoundaryPlayerT.position, Quaternion.identity);
             yield return new WaitForSeconds(m_spawnDelay);
         }
+
+        yield return new WaitForSeconds(1.0f);
+        GManager.Instance.CreateWord();
     }
 }

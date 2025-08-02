@@ -24,6 +24,11 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (GManager.Instance.IsBoundaryBattleFlag)
+            {
+                GManager.Instance.BoundaryBattleEnd();
+            }
+
             PoolManager.Instance.Return(gameObject);
         }
     }

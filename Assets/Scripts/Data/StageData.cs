@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StageData", menuName = "Scriptable Objects/StageData")]
 public class StageData : ScriptableObject
 {
+    [SerializeField] string m_correctWord = string.Empty;
+
     [Header("스테이지 발사 타입")]
     [SerializeField] ShooterType.TYPE m_stageShooterType = ShooterType.TYPE.None;
 
@@ -13,6 +15,11 @@ public class StageData : ScriptableObject
 
     [Header("배틀에서 등장하는 단어 리스트")]
     [SerializeField] List<WordData> m_wordDataList = null;
+
+    /// <summary>
+    /// 단어
+    /// </summary>
+    public string IsCorrectWord { get { return m_correctWord; } }
 
     /// <summary>
     /// 스테이지 발사 타입

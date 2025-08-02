@@ -597,7 +597,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -622,7 +622,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -1025, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -990,7 +990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &781125483
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,6 +1260,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 781125483}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &934956026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 934956027}
+  m_Layer: 0
+  m_Name: WordSpawnT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &934956027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934956026}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1025, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &979131961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shootCount: {x: 5, y: 6}
-  m_sinProjectilePrefab: {fileID: 0}
+  m_sinProjectilePrefab: {fileID: 8300314442831572890, guid: 93747db0ab9bb204c83c7bad4dc5d86e, type: 3}
   m_moveSpeed: {x: 2, y: 3}
   m_reverseFlag: 1
   m_xSpread: 15
@@ -1479,7 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shootCount: {x: 5, y: 6}
-  m_sinProjectilePrefab: {fileID: 0}
+  m_sinProjectilePrefab: {fileID: 8300314442831572890, guid: 5d89404ac7a3f664785b4e02fac4eb9b, type: 3}
   m_moveSpeed: {x: 2, y: 3}
   m_reverseFlag: 0
   m_xSpread: 15
@@ -1752,7 +1783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1995255943
 Transform:
   m_ObjectHideFlags: 0
@@ -2142,14 +2173,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5056169763725497427, guid: faa37198b6197834a9a1cd4f250ac487, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9dbb188dc0e2206468986a0bf3aa8890, type: 3}
-    - target: {fileID: 7545739655394238498, guid: faa37198b6197834a9a1cd4f250ac487, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9dbb188dc0e2206468986a0bf3aa8890, type: 3}
+    - target: {fileID: 1697484959318047360, guid: faa37198b6197834a9a1cd4f250ac487, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2295,6 +2322,10 @@ PrefabInstance:
       value: GManager
       objectReference: {fileID: 0}
     - target: {fileID: 5082768741974630754, guid: 733fc4a9589a241459a4408936684584, type: 3}
+      propertyPath: m_spawnT
+      value: 
+      objectReference: {fileID: 934956027}
+    - target: {fileID: 5082768741974630754, guid: 733fc4a9589a241459a4408936684584, type: 3}
       propertyPath: m_playerObj
       value: 
       objectReference: {fileID: 8644964703734313483}
@@ -2302,6 +2333,10 @@ PrefabInstance:
       propertyPath: m_battleObjs
       value: 
       objectReference: {fileID: 781125482}
+    - target: {fileID: 5082768741974630754, guid: 733fc4a9589a241459a4408936684584, type: 3}
+      propertyPath: m_wordPrefab
+      value: 
+      objectReference: {fileID: 1879787379253916407, guid: 17f32c50f615c54448a784e2908b0701, type: 3}
     - target: {fileID: 5082768741974630754, guid: 733fc4a9589a241459a4408936684584, type: 3}
       propertyPath: m_boundaryBox
       value: 
@@ -2530,3 +2565,4 @@ SceneRoots:
   - {fileID: 1322676951}
   - {fileID: 828362144}
   - {fileID: 156870744}
+  - {fileID: 934956027}

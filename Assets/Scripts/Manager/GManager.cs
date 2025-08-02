@@ -10,6 +10,10 @@ public class GManager : MonoBehaviour
     [SerializeField] GameObject m_nonBattleObjs = null;
     [SerializeField] GameObject m_battleObjs = null;
 
+    [Header("단어 설정")]
+    [SerializeField] Transform m_spawnT = null;
+    [SerializeField] GameObject m_wordPrefab = null;
+
     /// <summary>
     /// 인터렉팅 플래그
     /// </summary>
@@ -79,5 +83,13 @@ public class GManager : MonoBehaviour
         m_nonBattleObjs.SetActive(true);
 
         BattleManager.Instance.InitBattle();
+    }
+
+
+    public void CreateWord()
+    {
+        //GManager.Instance.CreateWord(); 이거 발사 끝나는 시점에 불러오기
+        GameObject _word = Instantiate(m_wordPrefab, m_spawnT.position, Quaternion.identity);
+        _word.GetComponent<WordProjectile>().Setting(m_curStageData.IsCorrectWord);
     }
 }

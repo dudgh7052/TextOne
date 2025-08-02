@@ -83,6 +83,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+
     public string GetRandomWord()
     {
         return m_spawnDatas[Random.Range(0, m_spawnDatas.Count)];

@@ -33,7 +33,11 @@ public class TargetProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            m_activeFlag = false;
+            if (GManager.Instance.IsBoundaryBattleFlag)
+            {
+                GManager.Instance.BoundaryBattleEnd();
+            }
+
             PoolManager.Instance.Return(gameObject);
         }
     }

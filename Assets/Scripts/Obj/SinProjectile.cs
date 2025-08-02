@@ -46,4 +46,18 @@ public class SinProjectile : MonoBehaviour
 
         transform.position = m_startPos + m_offset;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (GManager.Instance.IsBoundaryBattleFlag)
+            {
+                //GManager.Instance.StartEndDialogue();
+                GManager.Instance.BoundaryBattleEnd();
+            }
+
+            PoolManager.Instance.Return(gameObject);
+        }
+    }
 }

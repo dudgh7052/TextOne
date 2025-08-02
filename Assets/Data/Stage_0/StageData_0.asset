@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1cc18ee7693c34b92110b0c324eac3, type: 3}
   m_Name: StageData_0
   m_EditorClassIdentifier: 
-  m_stageShooterType: 5
+  m_correctWord: Correct
+  m_stageShooterType: 1
   m_startDialogueData: {fileID: 11400000, guid: 8ba54380c1dd27b4592873aa38c37ff5, type: 2}
   m_endDialogueData: {fileID: 11400000, guid: 9e3508f5b381f804fa1da298ca467623, type: 2}
   m_wordDataList:
