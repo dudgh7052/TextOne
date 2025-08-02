@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class RandomSpreadShooter : MonoBehaviour
 {
@@ -7,28 +6,25 @@ public class RandomSpreadShooter : MonoBehaviour
     [SerializeField] GameObject m_projectilePrefab = null;
     [SerializeField] Vector2 m_moveSpeed = Vector2.zero;
 
-    [Header("스폰 설정")]
-    [SerializeField] bool m_xSpreadFlag = false;
-    [SerializeField] bool m_rightMoveFlag = false;
+    [Header("발사 타입 (YSpread = 좌우, XSpread = 상하)")]
+    [SerializeField] ShooterType.TYPE m_shooterType = ShooterType.TYPE.None;
+
+    [Header("반전 플래그(true일때 YSpread = Left, XSpread = Down)")]
+    [SerializeField] bool m_reverseFlag = false;
     [SerializeField] float m_maxShootTime = 0.0f;
     [SerializeField] float m_xSpread = 0.0f;
     [SerializeField] float m_ySpread = 0.0f;
 
     float m_curShootTime = 0.0f;
 
+    Vector3 m_moveDir = Vector3.zero;
     Vector3 m_spawnPos = Vector3.zero;
     Vector3 m_spawnOffset = Vector3.zero;
 
-    void Update()
+    public void Tick()
     {
         if (!GManager.Instance.IsBoundaryBattleFlag) return;
 
-        // 나중에 한꺼번에 관리
-        Tick();
-    }
-
-    void Tick()
-    {
         m_curShootTime -= Time.deltaTime;
 
         if (m_curShootTime <= 0.0f)
@@ -40,15 +36,25 @@ public class RandomSpreadShooter : MonoBehaviour
 
     void RandomShoot()
     {
-        if (m_xSpreadFlag) m_spawnOffset = new Vector3(Random.Range(-m_xSpread * 0.5f, m_xSpread * 0.5f), 0.0f, 0.0f);
-        else m_spawnOffset = new Vector3(0.0f, Random.Range(-m_ySpread * 0.5f, m_ySpread * 0.5f), 0.0f);
+        switch (m_shooterType)
+        {
+            case ShooterType.TYPE.YSpread:
+                m_moveDir = m_reverseFlag ? Vector3.right : Vector3.left;
+                m_spawnOffset = new Vector3(0.0f, Random.Range(-m_ySpread * 0.5f, m_ySpread * 0.5f), 0.0f);
+                break;
+            case ShooterType.TYPE.UpSpread:
+            case ShooterType.TYPE.DownSpread:
+                m_moveDir = m_reverseFlag ? Vector3.up : Vector3.down;
+                m_spawnOffset = new Vector3(Random.Range(-m_xSpread * 0.5f, m_xSpread * 0.5f), 0.0f, 0.0f);
+                break;
+        }
 
         m_spawnPos = transform.position + m_spawnOffset;
 
         GameObject _obj = PoolManager.Instance.Get(m_projectilePrefab);
-
         _obj.transform.position = m_spawnPos;
-        _obj.GetComponent<Projectile>().Setting(m_rightMoveFlag ? Vector3.right : Vector3.left, RandomSpeed(), "Testt");
+        _obj.GetComponent<Projectile>().Setting(m_moveDir, RandomSpeed(), BattleManager.Instance.GetRandomWord());
+        BattleManager.Instance.IsProjectileList.Add(_obj);
     }
 
     private void OnDrawGizmosSelected()
@@ -67,6 +73,10 @@ public class RandomSpreadShooter : MonoBehaviour
         Gizmos.DrawSphere(_center, 0.1f);
     }
 
+    /// <summary>
+    /// 속도 범위내에서 랜덤하게 설정
+    /// </summary>
+    /// <returns></returns>
     float RandomSpeed()
     {
         return Random.Range(m_moveSpeed.x, m_moveSpeed.y);

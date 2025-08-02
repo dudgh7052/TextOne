@@ -26,12 +26,13 @@ public class GManager : MonoBehaviour
     /// <summary>
     /// 범위 배틀 시작
     /// </summary>
-    public void BoundaryBattleStart()
+    public void BoundaryBattleStart(List<string> argDataList)
     {
         IsBoundaryBattleFlag = true;
 
         m_nonBattleObjs.SetActive(false);
         m_battleObjs.SetActive(true);
+        BattleManager.Instance.SettingBattle(argDataList);
     }
 
     /// <summary>
@@ -43,5 +44,6 @@ public class GManager : MonoBehaviour
 
         m_battleObjs.SetActive(false);
         m_nonBattleObjs.SetActive(true);
+        BattleManager.Instance.InitBattle();
     }
 }

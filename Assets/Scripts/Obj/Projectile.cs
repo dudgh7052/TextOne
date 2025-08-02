@@ -4,7 +4,6 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] TextMeshPro m_text = null;
-    [SerializeField] float m_destroyTime = 3.0f;
 
     float m_moveSpeed = 0.0f;
     Vector3 m_moveDir = Vector3.zero;
@@ -29,7 +28,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GManager.Instance.BoundaryBattleEnd();
+            if (GManager.Instance.IsBoundaryBattleFlag) GManager.Instance.BoundaryBattleEnd();
             PoolManager.Instance.Return(gameObject);
         }
         if (other.CompareTag("Obstacle"))

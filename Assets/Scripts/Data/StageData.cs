@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "StageData", menuName = "Scriptable Objects/StageData")]
+public class StageData : ScriptableObject
+{
+    [Header("스테이지 발사 타입")]
+    [SerializeField] ShooterType.TYPE m_stageShooterType = ShooterType.TYPE.None;
+
+    [Header("스테이지 대화 데이터")]
+    [SerializeField] DialogueData m_dialogueData = null;
+
+    [Header("배틀에서 등장하는 단어 리스트")]
+    [SerializeField] List<WordData> m_wordDatas = null;
+}

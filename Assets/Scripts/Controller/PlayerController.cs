@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("이동속도")]
     [SerializeField] float m_moveSpeed = 0.0f;
+
+    [SerializeField] List<string> m_testWords = new List<string>();
 
     Rigidbody2D m_rb = null;
     Animator m_animator = null;
@@ -67,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("Interact Start");
             GManager.Instance.IsBoundaryBattleFlag = true;
-            GManager.Instance.BoundaryBattleStart();
+            GManager.Instance.BoundaryBattleStart(m_testWords);
         }
     }
 }

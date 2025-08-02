@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1cc18ee7693c34b92110b0c324eac3, type: 3}
+  m_Name: StageData_0
+  m_EditorClassIdentifier: 
+  m_stageShooterType: 1
+  m_dialogueData: {fileID: 11400000, guid: 8ba54380c1dd27b4592873aa38c37ff5, type: 2}
+  m_wordDatas:
+  - {fileID: 11400000, guid: 78f4c52aa579e1f42bd6dcc28ebcd5dd, type: 2}
+  - {fileID: 11400000, guid: 01a824f8a57de6541aec29ef9341ab46, type: 2}
+  - {fileID: 11400000, guid: 2a045b7157babfc499204ccdf447e030, type: 2}
+  - {fileID: 11400000, guid: f2bdc97421caedd488712c35b16b6f1e, type: 2}
+  - {fileID: 11400000, guid: 6d78e970eaf9e3048ae614c337417346, type: 2}
