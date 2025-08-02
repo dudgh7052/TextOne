@@ -5,9 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float m_moveSpeed = 0.0f;
 
+
     [Header("Interact Settings")]
     [SerializeField] float m_interactRadius = 0.0f;
     [SerializeField] LayerMask m_interactMask;
+
+    [SerializeField] CapsuleCollider2D m_boundaryCollider; //충돌범위콜라이더
+    Bounds m_bounds; 
 
     bool m_facingRightFlag = true;
 
@@ -44,6 +48,11 @@ public class PlayerController : MonoBehaviour
     {
         m_rb = transform.GetComponent<Rigidbody2D>();
         m_animator = transform.Find("ViewObj").GetComponent<Animator>();
+
+        if(m_boundaryCollider != null)//바운더리 설정
+        {
+            m_bounds = m_boundaryCollider.bounds;
+        }
     }
 
     void HandleInput()
@@ -71,8 +80,13 @@ public class PlayerController : MonoBehaviour
             m_rb.linearVelocity = Vector2.zero;
             return;
         }
+        //캡슐 콜라이더 내 위치 조정
+        Vector2 nextPos = m_rb.position + m_moveSpeed * Time.fixedDeltaTime * m_input;
+        float clampedX = Mathf.Clamp(nextPos.x, m_bounds.min.x, m_bounds.max.x);
+        float clampedY = Mathf.Clamp(nextPos.y, m_bounds.min.y, m_bounds.max.y);
+        Vector2 clampedPos = new Vector2(clampedX, clampedY);
 
-        m_rb.linearVelocity = m_moveSpeed * m_input.normalized;
+        m_rb.MovePosition(clampedPos);
     }
 
     void HandleFlip()
