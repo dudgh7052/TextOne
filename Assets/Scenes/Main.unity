@@ -1665,6 +1665,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 117869363040997629, guid: faa37198b6197834a9a1cd4f250ac487, type: 3}
+      propertyPath: m_backgroundSp
+      value: 
+      objectReference: {fileID: 3974248214813509329}
+    - target: {fileID: 117869363040997629, guid: faa37198b6197834a9a1cd4f250ac487, type: 3}
       propertyPath: m_leftNPCPortraitSp
       value: 
       objectReference: {fileID: 681054409}
