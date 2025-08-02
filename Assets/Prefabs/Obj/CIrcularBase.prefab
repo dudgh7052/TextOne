@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7086846625178629586}
   - component: {fileID: 188468055055295100}
   m_Layer: 0
-  m_Name: CIrcularProjectileBase
+  m_Name: CIrcularBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotateSpeed: 30
-  m_spawnRadius: {x: 5, y: 10}
-  m_projectileCount: 10
-  m_projectileSpeed: 5
+  m_spawnRadius: {x: 8, y: 10}
+  m_projectileCount: 8
+  m_moveSpeed: 7
   m_projectilePrefab: {fileID: 2476156198807539090, guid: e506935a6cfa29d459cc3aaa42a99df2, type: 3}
-  m_wordProjectilePrefab: {fileID: 1879787379253916407, guid: d85303ae29c76da4eb63638a6da7888f, type: 3}

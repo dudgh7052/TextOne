@@ -1,18 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class RandomSpreadShooter : MonoBehaviour
+public class SinRandomSpreadShooter : MonoBehaviour
 {
     [Header("발사 개수 설정")]
     [SerializeField] Vector2Int m_shootCount = Vector2Int.zero;
 
     [Header("발사체 설정")]
-    [SerializeField] GameObject m_projectilePrefab = null;
+    [SerializeField] GameObject m_sinProjectilePrefab = null;
     [SerializeField] Vector2 m_moveSpeed = Vector2.zero;
 
-    [Header("좌우 반전 플래그(true: 왼쪽으로 발사)")]
+    [Header("반전 플래그(true: 아래에서 위로)")]
     [SerializeField] bool m_reverseFlag = false;
-    [SerializeField] float m_ySpread = 0.0f;
+    [SerializeField] float m_xSpread = 0.0f;
     [SerializeField] float m_shootDelay = 0.0f;
 
     Vector3 m_moveDir = Vector3.zero;
@@ -44,13 +44,13 @@ public class RandomSpreadShooter : MonoBehaviour
 
     void RandomShoot()
     {
-        m_moveDir = m_reverseFlag ? Vector3.left : Vector3.right;
-        m_spawnOffset = new Vector3(0.0f, Random.Range(-m_ySpread * 0.5f, m_ySpread * 0.5f), 0.0f);
+        m_moveDir = m_reverseFlag ? Vector3.up : Vector3.down;
+        m_spawnOffset = new Vector3(Random.Range(-m_xSpread * 0.5f, m_xSpread * 0.5f), 0.0f, 0.0f);
         m_spawnPos = transform.position + m_spawnOffset;
 
-        GameObject _obj = PoolManager.Instance.Get(m_projectilePrefab);
+        GameObject _obj = PoolManager.Instance.Get(m_sinProjectilePrefab);
         _obj.transform.position = m_spawnPos;
-        _obj.GetComponent<Projectile>().Setting(m_moveDir, RandomSpeed());
+        _obj.GetComponent<SinProjectile>().Setting(m_moveDir, RandomSpeed());
 
         BattleManager.Instance.IsSpawnedProjectileList.Add(_obj);
     }
@@ -69,9 +69,10 @@ public class RandomSpreadShooter : MonoBehaviour
         Gizmos.color = Color.cyan;
 
         Vector3 _center = transform.position;
-        Vector3 _size = new Vector3(0.1f, m_ySpread, 0.1f);
+        Vector3 _size = new Vector3(m_xSpread, 0.1f, 0.1f);
         Gizmos.DrawWireCube(_center, _size);
 
+        // (선택) 중심 위치 표시
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(_center, 0.1f);
     }

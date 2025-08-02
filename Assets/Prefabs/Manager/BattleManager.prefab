@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f831e709c32edf4a89ac83b2f899aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_curShooterType: 0
+  m_doubleSpreadShooter: {fileID: 0}
+  m_upSinShooter: {fileID: 0}
+  m_downSinShooters: {fileID: 0}
+  m_circularProjectileShooter: {fileID: 0}

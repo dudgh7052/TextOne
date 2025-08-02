@@ -63,6 +63,8 @@ public class GManager : MonoBehaviour
     void StartBattle()
     {
         if (m_curStageData == null) return;
+
+        IsBoundaryBattleFlag = true;
         BattleManager.Instance.SettingBattle(m_curStageData.IsWordDataList, m_curStageData.IsStageShooterType);
     }
 

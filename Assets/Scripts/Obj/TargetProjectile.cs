@@ -1,11 +1,9 @@
-using TMPro;
 using UnityEngine;
 
 public class TargetProjectile : MonoBehaviour
 {
-    [SerializeField] float m_moveSpeed = 5.0f;
-
     Vector3 m_targetPos;
+    float m_moveSpeed = 5.0f;
     bool m_activeFlag = false;
 
     /// <summary>

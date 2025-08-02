@@ -7,17 +7,23 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] ShooterType.TYPE m_curShooterType = ShooterType.TYPE.DoubleYSpread;
 
-    [Header("Shooters")]
-    [SerializeField] List<RandomSpreadShooter> m_ySpreadShooters = null;
-    [SerializeField] RandomSpreadShooter m_upSpreadShooters = null;
-    [SerializeField] RandomSpreadShooter m_downSpreadShooters = null;
-    [SerializeField] CircularProjectileShooter m_circularProjectileShooter = null;
+    [Header("좌에서 우로 크고 빠르게 이동하는 패턴")]
+    [SerializeField] RandomSpreadShooter m_leftShooter = null;
 
-    bool m_settingFlag = false;
+    [Header("양쪽에서 나오는 패턴")]
+    [SerializeField] DoubleRandomSpreadShooter m_doubleSpreadShooter = null;
+
+    [Header("위, 아래에서 좌우로 움직이며 나오는 패턴")]
+    [SerializeField] SinRandomSpreadShooter m_upSinShooter = null;
+    [SerializeField] SinRandomSpreadShooter m_downSinShooters = null;
+
+    [Header("캐릭터 주변으로 원 형태로 나오는 패턴")]
+    [SerializeField] CircularShooter m_circularShooter = null;
+
     List<string> m_spawnDatas = new List<string>();
-    List<GameObject> m_spawnedProjectiles = new List<GameObject>();
+    List<GameObject> m_spawnedProjectileList = new List<GameObject>();
 
-    public List<GameObject> IsProjectileList => m_spawnedProjectiles;
+    public List<GameObject> IsSpawnedProjectileList => m_spawnedProjectileList;
 
     void Awake()
     {
@@ -28,28 +34,18 @@ public class BattleManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    void Update()
-    {
-        if (!m_settingFlag || !GManager.Instance.IsBoundaryBattleFlag) return;
-
-        // 여기서 날아오는 타입에 따라서 분기
-        UpdateShooter();
-    }
-
     public void InitBattle()
     {
-        if (m_spawnedProjectiles.Count > 0)
+        if (m_spawnedProjectileList.Count > 0)
         {
-            for (int i = 0; i < m_spawnedProjectiles.Count; i++)
+            for (int i = 0; i < m_spawnedProjectileList.Count; i++)
             {
-                PoolManager.Instance.Return(m_spawnedProjectiles[i]);
+                PoolManager.Instance.Return(m_spawnedProjectileList[i]);
             }
         }
 
         m_spawnDatas.Clear(); // 날라올 데이터(단어) 리스트 초기화
-        m_spawnedProjectiles.Clear(); // 현재 생성된 발사체 리스트 초기화
-
-        m_settingFlag = false;
+        m_spawnedProjectileList.Clear(); // 현재 생성된 발사체 리스트 초기화
     }
 
     public void SettingBattle(List<WordData> argWordDataList, ShooterType.TYPE argShooterType)
@@ -57,30 +53,32 @@ public class BattleManager : MonoBehaviour
         m_curShooterType = argShooterType;
 
         m_spawnDatas.Clear();
-
         for (int i = 0; i < argWordDataList.Count; i++)
         {
             m_spawnDatas.Add(argWordDataList[i].IsWord);
         }
 
-        m_settingFlag = true;
+        StartPattern();
     }
 
-    void UpdateShooter()
+    void StartPattern()
     {
         switch (m_curShooterType)
         {
+            case ShooterType.TYPE.LeftYSpread:
+                m_leftShooter.StartShooting();
+                break;
             case ShooterType.TYPE.DoubleYSpread:
-                foreach (RandomSpreadShooter _sc in m_ySpreadShooters) _sc.Tick();
+                m_doubleSpreadShooter.StartShooting();
                 break;
-            case ShooterType.TYPE.UpSpread:
-                m_upSpreadShooters?.Tick();
+            case ShooterType.TYPE.SinUpSpread:
+                m_upSinShooter.StartShooting();
                 break;
-            case ShooterType.TYPE.DownSpread:
-                m_downSpreadShooters?.Tick();
+            case ShooterType.TYPE.SinDownSpread:
+                m_downSinShooters.StartShooting();
                 break;
             case ShooterType.TYPE.Circular:
-                m_circularProjectileShooter?.Tick();
+                m_circularShooter.StartShooting();
                 break;
         }
     }
