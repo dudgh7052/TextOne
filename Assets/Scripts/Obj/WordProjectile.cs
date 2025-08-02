@@ -12,7 +12,7 @@ public class WordProjectile : MonoBehaviour
     /// 프로젝타일 셋팅
     /// </summary>
     /// <param name="argDir"></param>
-    public void Setting(Vector3 argDir, float argSpeed,string argStr)
+    public void Setting(Vector3 argDir, float argSpeed, string argStr)
     {
         m_moveDir = argDir;
         m_moveSpeed = argSpeed;
@@ -34,10 +34,6 @@ public class WordProjectile : MonoBehaviour
                 BattleManager.Instance.InitBattle();
             }
 
-            PoolManager.Instance.Return(gameObject);
-        }
-        if (other.CompareTag("Obstacle"))
-        {
             PoolManager.Instance.Return(gameObject);
         }
     }

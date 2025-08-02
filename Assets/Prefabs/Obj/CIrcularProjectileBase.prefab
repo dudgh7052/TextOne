@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596cd8788b745ff4ba19bb904fc1e082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotateSpeed: 0
-  m_spawnRadius: 5
-  m_projectileCount: 36
-  m_projectileSpeed: 3
+  m_rotateSpeed: 30
+  m_spawnRadius: {x: 5, y: 10}
+  m_projectileCount: 10
+  m_projectileSpeed: 5
   m_projectilePrefab: {fileID: 2476156198807539090, guid: e506935a6cfa29d459cc3aaa42a99df2, type: 3}
-  m_wordProjectilePrefab: {fileID: 1879787379253916407, guid: 17f32c50f615c54448a784e2908b0701, type: 3}
+  m_wordProjectilePrefab: {fileID: 1879787379253916407, guid: d85303ae29c76da4eb63638a6da7888f, type: 3}

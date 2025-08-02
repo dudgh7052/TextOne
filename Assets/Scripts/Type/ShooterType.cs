@@ -3,8 +3,11 @@ public class ShooterType
     public enum TYPE
     {
         None,
-        YSpread,
+        DoubleYSpread,
         UpSpread,
-        DownSpread
+        DownSpread,
+        SinUpSpread,
+        SinDownSpread,
+        Circular
     }
 }
