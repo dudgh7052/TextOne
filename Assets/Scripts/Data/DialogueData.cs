@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class Dialogue
@@ -21,10 +22,18 @@ public class Dialogue
 [CreateAssetMenu(fileName = "DialogueData", menuName = "Scriptable Objects/DialogueData")]
 public class DialogueData : ScriptableObject
 {
+    [Header("뒷배경")]
+    [SerializeField] Sprite m_background = null;
+
     [SerializeField] Sprite m_leftNPCSprite = null;
     [SerializeField] Sprite m_rightNPCSprite = null;
 
     [SerializeField] List<Dialogue> m_dialogueList = null;
+
+    /// <summary>
+    /// 뒷배경
+    /// </summary>
+    public Sprite IsBackground { get { return m_background; } }
 
     /// <summary>
     /// 대화 리스트

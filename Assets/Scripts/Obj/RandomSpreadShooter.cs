@@ -38,7 +38,7 @@ public class RandomSpreadShooter : MonoBehaviour
     {
         switch (m_shooterType)
         {
-            case ShooterType.TYPE.YSpread:
+            case ShooterType.TYPE.DoubleYSpread:
                 m_moveDir = m_reverseFlag ? Vector3.right : Vector3.left;
                 m_spawnOffset = new Vector3(0.0f, Random.Range(-m_ySpread * 0.5f, m_ySpread * 0.5f), 0.0f);
                 break;

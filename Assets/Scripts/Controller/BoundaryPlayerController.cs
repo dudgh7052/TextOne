@@ -37,6 +37,7 @@ public class BoundaryPlayerController : MonoBehaviour
 
     void Setting()
     {
+        GManager.Instance.IsBoundaryPlayerT = transform;
         m_rb = transform.GetComponent<Rigidbody2D>();
         //m_animator = transform.Find("ViewObj").GetComponent<Animator>();
     }

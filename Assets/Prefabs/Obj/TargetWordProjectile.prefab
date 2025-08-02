@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8531434781915139687}
   - component: {fileID: 4038919422269961388}
   - component: {fileID: 1988438652127783561}
-  - component: {fileID: 7861245841459343018}
+  - component: {fileID: 7587784174934454514}
   - component: {fileID: -7126291511398761679}
   m_Layer: 0
-  m_Name: WordProjectile
+  m_Name: TargetWordProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &7861245841459343018
+--- !u!114 &7587784174934454514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,10 +118,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1879787379253916407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a207b849629b844be250f9360f3ea4, type: 3}
+  m_Script: {fileID: 11500000, guid: 611b27672ab8f6e40b8eeb3c727aadfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: {fileID: 53477528230505183}
+  m_moveSpeed: 5
+  m_arrivalThreshold: 0.1
 --- !u!114 &-7126291511398761679
 MonoBehaviour:
   m_ObjectHideFlags: 0

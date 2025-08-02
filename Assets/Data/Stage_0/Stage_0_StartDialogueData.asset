@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8aabb123e9b33943a68983bdf37d2f7, type: 3}
   m_Name: Stage_0_StartDialogueData
   m_EditorClassIdentifier: 
+  m_background: {fileID: 7107687931089781869, guid: a8940b7d01f171046a56151f5f429c62, type: 3}
   m_leftNPCSprite: {fileID: 21300000, guid: 9feeff2a994ea604db67797188012c78, type: 3}
   m_rightNPCSprite: {fileID: 21300000, guid: 72b2316838b688d4fa03b33eabde7212, type: 3}
   m_dialogueList:

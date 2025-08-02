@@ -20,12 +20,16 @@ public class GManager : MonoBehaviour
     /// </summary>
     public StageData IsCurStageData { get { return m_curStageData; } }
 
+    /// <summary>
+    /// 바운더리 플레이어 트랜스폼
+    /// </summary>
+    public Transform IsBoundaryPlayerT { get; set; }
+
     void Awake()
     {
         if (GManager.Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
     }

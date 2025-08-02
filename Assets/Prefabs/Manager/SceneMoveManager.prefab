@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fadeImg: {fileID: 7923884971333110326}
-  m_fadeSpeed: 1.5
+  m_fadeSpeed: 1
   m_color:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
