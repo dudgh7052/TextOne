@@ -11,5 +11,20 @@ public class StageData : ScriptableObject
     [SerializeField] DialogueData m_dialogueData = null;
 
     [Header("배틀에서 등장하는 단어 리스트")]
-    [SerializeField] List<WordData> m_wordDatas = null;
+    [SerializeField] List<WordData> m_wordDataList = null;
+
+    /// <summary>
+    /// 스테이지 발사 타입
+    /// </summary>
+    public ShooterType.TYPE IsStageShooterType { get { return m_stageShooterType; } }
+
+    /// <summary>
+    /// 대화 데이터
+    /// </summary>
+    public DialogueData IsDialogueData { get { return m_dialogueData; } }
+
+    /// <summary>
+    /// 단어 데이터
+    /// </summary>
+    public List<WordData> IsWordDataList { get { return m_wordDataList; } }
 }

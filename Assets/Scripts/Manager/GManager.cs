@@ -5,6 +5,8 @@ public class GManager : MonoBehaviour
 {
     public static GManager Instance { get; private set; } = null;
 
+    StageData m_curStageData = null;
+
     [SerializeField] GameObject m_nonBattleObjs = null;
     [SerializeField] GameObject m_battleObjs = null;
 
@@ -26,13 +28,23 @@ public class GManager : MonoBehaviour
     /// <summary>
     /// 범위 배틀 시작
     /// </summary>
-    public void BoundaryBattleStart(List<string> argDataList)
+    public void BoundaryBattleStart(StageData argStageData)
     {
+        if (IsBoundaryBattleFlag) return;
+
         IsBoundaryBattleFlag = true;
+        m_curStageData = argStageData;
 
         m_nonBattleObjs.SetActive(false);
         m_battleObjs.SetActive(true);
-        BattleManager.Instance.SettingBattle(argDataList);
+
+        if (m_curStageData != null) DialogueManager.Instance.StartDialogue(m_curStageData.IsDialogueData);
+    }
+
+    void StartBattle()
+    {
+        if (m_curStageData == null) return;
+        BattleManager.Instance.SettingBattle(m_curStageData.IsWordDataList, m_curStageData.IsStageShooterType);
     }
 
     /// <summary>
@@ -44,6 +56,7 @@ public class GManager : MonoBehaviour
 
         m_battleObjs.SetActive(false);
         m_nonBattleObjs.SetActive(true);
+
         BattleManager.Instance.InitBattle();
     }
 }

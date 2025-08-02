@@ -52,13 +52,15 @@ public class BattleManager : MonoBehaviour
         m_settingFlag = false;
     }
 
-    public void SettingBattle(List<string> argDataList)
+    public void SettingBattle(List<WordData> argWordDataList, ShooterType.TYPE argShooterType)
     {
+        m_curShooterType = argShooterType;
+
         m_spawnDatas.Clear();
 
-        for (int i = 0; i < argDataList.Count; i++)
+        for (int i = 0; i < argWordDataList.Count; i++)
         {
-            m_spawnDatas.Add(argDataList[i]);
+            m_spawnDatas.Add(argWordDataList[i].IsWord);
         }
 
         m_settingFlag = true;

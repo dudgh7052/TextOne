@@ -8,6 +8,11 @@ public class InteractNPC : MonoBehaviour
     [Header("상호작용 아이콘")]
     [SerializeField] GameObject m_interactIcon = null;
 
+    /// <summary>
+    /// 스테이지 데이터
+    /// </summary>
+    public StageData IsStageData { get { return m_stageData; } }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("이동속도")]
     [SerializeField] float m_moveSpeed = 0.0f;
 
-    [SerializeField] List<string> m_testWords = new List<string>();
+    [Header("Interact Settings")]
+    [SerializeField] float m_interactRadius = 0.0f;
+    [SerializeField] LayerMask m_interactMask;
 
     Rigidbody2D m_rb = null;
     Animator m_animator = null;
@@ -67,10 +68,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             // 레이어 체크해서 npc면 Interact 시작
-
-            Debug.Log("Interact Start");
-            GManager.Instance.IsBoundaryBattleFlag = true;
-            GManager.Instance.BoundaryBattleStart(m_testWords);
+            Collider2D _hit = Physics2D.OverlapCircle(transform.position, m_interactRadius, m_interactMask);
+            if (_hit != null && _hit.TryGetComponent(out InteractNPC _sc))
+            {
+                GManager.Instance.BoundaryBattleStart(_sc.IsStageData);
+            }
         }
     }
 }

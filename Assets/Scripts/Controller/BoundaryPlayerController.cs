@@ -26,7 +26,6 @@ public class BoundaryPlayerController : MonoBehaviour
         if (!GManager.Instance.IsBoundaryBattleFlag) return;
 
         HandleInput();
-        if (Input.GetKeyDown(KeyCode.E)) GManager.Instance.BoundaryBattleEnd(); // 나중에 바꾸기
     }
 
     void FixedUpdate()
