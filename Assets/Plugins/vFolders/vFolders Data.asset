@@ -20,6 +20,8 @@ MonoBehaviour:
     - 445c433627483734d8fd0594bc90c30f
     - 87a1da18cca04664c818451c4ebebbc2
     - 2670c96ae359ef6448d45949531120b7
+    - 97d3444bc0d177544880c389ae359b1c
+    - 1cae165f71878154eae59b1343966b22
     values:
     - iconNameOrGuid: SceneAsset Icon
       colorIndex: 0
@@ -42,6 +44,14 @@ MonoBehaviour:
       isIconRecursive: 0
       isColorRecursive: 0
     - iconNameOrGuid: Prefab Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: RawImage Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: AnimationClip Icon
       colorIndex: 0
       isIconRecursive: 0
       isColorRecursive: 0

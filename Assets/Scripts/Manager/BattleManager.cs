@@ -12,9 +12,9 @@ public class BattleManager : MonoBehaviour
     [SerializeField] RandomSpreadShooter m_upSpreadShooters = null;
     [SerializeField] RandomSpreadShooter m_downSpreadShooters = null;
 
+    bool m_settingFlag = false;
     List<string> m_spawnDatas = new List<string>();
     List<GameObject> m_spawnedProjectiles = new List<GameObject>();
-    bool m_settingFlag = false;
 
     public List<GameObject> IsProjectileList => m_spawnedProjectiles;
 

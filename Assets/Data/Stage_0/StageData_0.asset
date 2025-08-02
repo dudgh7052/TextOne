@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stageShooterType: 1
   m_dialogueData: {fileID: 11400000, guid: 8ba54380c1dd27b4592873aa38c37ff5, type: 2}
-  m_wordDatas:
+  m_wordDataList:
   - {fileID: 11400000, guid: 78f4c52aa579e1f42bd6dcc28ebcd5dd, type: 2}
   - {fileID: 11400000, guid: 01a824f8a57de6541aec29ef9341ab46, type: 2}
   - {fileID: 11400000, guid: 2a045b7157babfc499204ccdf447e030, type: 2}

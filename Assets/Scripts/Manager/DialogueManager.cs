@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject m_rightNPCDialoguePanel = null;
 
     bool m_typingFlag = false;
+    bool m_dialogueFlag = false;
+
     Action m_endEvent = null;
     Queue<Dialogue> m_dialogueQueue = new Queue<Dialogue>();
 
@@ -38,7 +40,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (!m_typingFlag && m_dialogueQueue.Count > 0)
+        if (!m_typingFlag && m_dialogueFlag)
         {
             if (Input.GetKeyDown(KeyCode.F)) DisplayNextDialogue();
         }
@@ -46,6 +48,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueData argDialogueData, Action argEndEvent = null)
     {
+        m_dialogueFlag = true;
+
         // Dialogue 설정 및 이벤트 등록
         m_dialogueQueue.Clear();
         m_endEvent = argEndEvent;
@@ -104,7 +108,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("End Dialogue");
+        m_dialogueFlag = false;
 
         m_leftNPCDialoguePanel.SetActive(false);
         m_rightNPCDialoguePanel.SetActive(false);

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8aabb123e9b33943a68983bdf37d2f7, type: 3}
   m_Name: DialogueData
   m_EditorClassIdentifier: 
-  m_leftNPCSprite: {fileID: 21300000, guid: 5c060067c6148c14f9446ea806161471, type: 3}
-  m_rightNPCSprite: {fileID: 21300000, guid: a46f35f2a8f69b1459ade80828ae36dc, type: 3}
+  m_leftNPCSprite: {fileID: 5109535305332945021, guid: 9feeff2a994ea604db67797188012c78, type: 3}
+  m_rightNPCSprite: {fileID: 8098768297753798651, guid: 72b2316838b688d4fa03b33eabde7212, type: 3}
   m_dialogueList:
   - m_rightNPCFlag: 0
     m_dialogue: This is Dialogue Test 0

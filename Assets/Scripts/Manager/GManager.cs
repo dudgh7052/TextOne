@@ -38,7 +38,7 @@ public class GManager : MonoBehaviour
         m_nonBattleObjs.SetActive(false);
         m_battleObjs.SetActive(true);
 
-        if (m_curStageData != null) DialogueManager.Instance.StartDialogue(m_curStageData.IsDialogueData);
+        if (m_curStageData != null) DialogueManager.Instance.StartDialogue(m_curStageData.IsDialogueData, StartBattle);
     }
 
     void StartBattle()
