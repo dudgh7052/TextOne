@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8aabb123e9b33943a68983bdf37d2f7, type: 3}
   m_Name: Stage_0_EndDialogueData 1
   m_EditorClassIdentifier: 
+  m_background: {fileID: 7107687931089781869, guid: a8940b7d01f171046a56151f5f429c62, type: 3}
   m_leftNPCSprite: {fileID: 21300000, guid: 9feeff2a994ea604db67797188012c78, type: 3}
   m_rightNPCSprite: {fileID: 21300000, guid: 72b2316838b688d4fa03b33eabde7212, type: 3}
   m_dialogueList:
   - m_rightNPCFlag: 0
-    m_dialogue: This is Dialogue Test 0
+    m_dialogue: This is End Dialogue Test 0
   - m_rightNPCFlag: 1
-    m_dialogue: This is Dialogue Test 1
+    m_dialogue: This is End Dialogue Test 1
   - m_rightNPCFlag: 0
-    m_dialogue: This is Dialogue Test 2
+    m_dialogue: This is End Dialogue Test 2
   - m_rightNPCFlag: 1
-    m_dialogue: This is Dialogue Test 3
+    m_dialogue: This is End Dialogue Test 3

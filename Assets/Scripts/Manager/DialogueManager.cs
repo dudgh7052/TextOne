@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject m_leftNPCDialoguePanel = null;
     [SerializeField] GameObject m_rightNPCDialoguePanel = null;
 
+    [SerializeField] SpriteRenderer m_backgroundSp = null;
+
     bool m_typingFlag = false;
     bool m_dialogueFlag = false;
 
@@ -33,7 +35,6 @@ public class DialogueManager : MonoBehaviour
         if (DialogueManager.Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
     }
@@ -53,6 +54,9 @@ public class DialogueManager : MonoBehaviour
         // Dialogue 설정 및 이벤트 등록
         m_dialogueQueue.Clear();
         m_endEvent = argEndEvent;
+
+        // 뒷배경 설정
+        m_backgroundSp.sprite = argDialogueData.IsBackground;
 
         // Sprite 설정
         m_leftNPCPortraitSp.sprite = argDialogueData.IsLeftNPCSprite;

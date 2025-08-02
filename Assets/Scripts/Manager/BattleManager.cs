@@ -5,12 +5,13 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
 
-    [SerializeField] ShooterType.TYPE m_curShooterType = ShooterType.TYPE.YSpread;
+    [SerializeField] ShooterType.TYPE m_curShooterType = ShooterType.TYPE.DoubleYSpread;
 
     [Header("Shooters")]
     [SerializeField] List<RandomSpreadShooter> m_ySpreadShooters = null;
     [SerializeField] RandomSpreadShooter m_upSpreadShooters = null;
     [SerializeField] RandomSpreadShooter m_downSpreadShooters = null;
+    [SerializeField] CircularProjectileShooter m_circularProjectileShooter = null;
 
     bool m_settingFlag = false;
     List<string> m_spawnDatas = new List<string>();
@@ -23,7 +24,6 @@ public class BattleManager : MonoBehaviour
         if (BattleManager.Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
     }
@@ -70,7 +70,7 @@ public class BattleManager : MonoBehaviour
     {
         switch (m_curShooterType)
         {
-            case ShooterType.TYPE.YSpread:
+            case ShooterType.TYPE.DoubleYSpread:
                 foreach (RandomSpreadShooter _sc in m_ySpreadShooters) _sc.Tick();
                 break;
             case ShooterType.TYPE.UpSpread:
@@ -78,6 +78,9 @@ public class BattleManager : MonoBehaviour
                 break;
             case ShooterType.TYPE.DownSpread:
                 m_downSpreadShooters?.Tick();
+                break;
+            case ShooterType.TYPE.Circular:
+                m_circularProjectileShooter?.Tick();
                 break;
         }
     }

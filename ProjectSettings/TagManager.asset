@@ -46,5 +46,8 @@ TagManager:
   - name: Boundary
     uniqueID: 3115266475
     locked: 0
+  - name: UI
+    uniqueID: 2356000793
+    locked: 0
   m_RenderingLayers:
   - Default
