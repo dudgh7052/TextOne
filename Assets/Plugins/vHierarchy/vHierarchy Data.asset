@@ -15,6 +15,7 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - 8c9cfa26abfee488c85f1582747f6a02
+    - 754ec7888b646474c9e140d28b3a82eb
     values:
     - goDatas_byGlobalId:
         keys:
@@ -29,6 +30,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1159472901-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-243232721071486909-396887527713212500
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-253433052456066919-4545946712815945247
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2009758923698866743-1322676951
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1946887532-0
         values:
         - colorIndex: 0
           iconNameOrGuid: cs Script Icon
@@ -72,6 +75,52 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: EventSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-754ec7888b646474c9e140d28b3a82eb-753813920-0
+        - globalObjectIdString: GlobalObjectId_V1-2-754ec7888b646474c9e140d28b3a82eb-740539117-0
+        - globalObjectIdString: GlobalObjectId_V1-2-754ec7888b646474c9e140d28b3a82eb-2009758923698866743-2286472869543420564
+        - globalObjectIdString: GlobalObjectId_V1-2-754ec7888b646474c9e140d28b3a82eb-7923884972322468335-873361368
+        - globalObjectIdString: GlobalObjectId_V1-2-754ec7888b646474c9e140d28b3a82eb-7923344358235479799-7695834908931092155
+        - globalObjectIdString: GlobalObjectId_V1-2-754ec7888b646474c9e140d28b3a82eb-1562186831-0
+        - globalObjectIdString: GlobalObjectId_V1-2-754ec7888b646474c9e140d28b3a82eb-1995731473-0
+        values:
+        - colorIndex: 8
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: EventSystem Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks:

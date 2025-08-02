@@ -22,6 +22,7 @@ MonoBehaviour:
     - 2670c96ae359ef6448d45949531120b7
     - 97d3444bc0d177544880c389ae359b1c
     - 1cae165f71878154eae59b1343966b22
+    - 2aec6610f70440a4682010878865e435
     values:
     - iconNameOrGuid: SceneAsset Icon
       colorIndex: 0
@@ -52,6 +53,10 @@ MonoBehaviour:
       isIconRecursive: 0
       isColorRecursive: 0
     - iconNameOrGuid: AnimationClip Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: AudioClip Icon
       colorIndex: 0
       isIconRecursive: 0
       isColorRecursive: 0
