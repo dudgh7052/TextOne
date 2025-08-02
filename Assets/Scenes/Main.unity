@@ -890,7 +890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &781125483
 Transform:
   m_ObjectHideFlags: 0
@@ -1365,6 +1365,53 @@ Transform:
   - {fileID: 41742124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2003524465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003524466}
+  - component: {fileID: 2003524467}
+  m_Layer: 0
+  m_Name: CircularProjectileShooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2003524466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003524465}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2003524467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003524465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380f00da36e58d047b849ca645742da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxShootTime: 3
+  m_circularProjectileBase: {fileID: 2001238660695802599, guid: f9cf7e9998f82064bb76fb08bb830de8, type: 3}
+  m_spawnPos: {x: -1025, y: -3, z: 0}
 --- !u!1 &2138828672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,3 +2035,4 @@ SceneRoots:
   - {fileID: 4545946712815945247}
   - {fileID: 396887527713212500}
   - {fileID: 756128183}
+  - {fileID: 2003524466}

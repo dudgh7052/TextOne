@@ -53,7 +53,7 @@ public class RandomSpreadShooter : MonoBehaviour
 
         GameObject _obj = PoolManager.Instance.Get(m_projectilePrefab);
         _obj.transform.position = m_spawnPos;
-        _obj.GetComponent<Projectile>().Setting(m_moveDir, RandomSpeed(), BattleManager.Instance.GetRandomWord());
+        _obj.GetComponent<WordProjectile>().Setting(m_moveDir, RandomSpeed(), BattleManager.Instance.GetRandomWord());
         BattleManager.Instance.IsProjectileList.Add(_obj);
     }
 
