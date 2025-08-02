@@ -30,7 +30,7 @@ public class BattleManager : MonoBehaviour
 
     void Update()
     {
-        if (!m_settingFlag) return;
+        if (!m_settingFlag || !GManager.Instance.IsBoundaryBattleFlag) return;
 
         // 여기서 날아오는 타입에 따라서 분기
         UpdateShooter();

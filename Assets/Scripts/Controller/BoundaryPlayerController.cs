@@ -6,10 +6,10 @@ public class BoundaryPlayerController : MonoBehaviour
     [SerializeField] float m_moveSpeed = 0.0f;
 
     Rigidbody2D m_rb = null;
-    Animator m_animator = null;
+    //Animator m_animator = null;
     Vector2 m_input = Vector2.zero;
 
-    readonly int m_moveFlagHash = Animator.StringToHash("MoveFlag");
+    //readonly int m_moveFlagHash = Animator.StringToHash("MoveFlag");
 
     void OnEnable()
     {
@@ -38,7 +38,7 @@ public class BoundaryPlayerController : MonoBehaviour
     void Setting()
     {
         m_rb = transform.GetComponent<Rigidbody2D>();
-        m_animator = transform.Find("ViewObj").GetComponent<Animator>();
+        //m_animator = transform.Find("ViewObj").GetComponent<Animator>();
     }
 
     void HandleInput()
@@ -52,12 +52,12 @@ public class BoundaryPlayerController : MonoBehaviour
     {
         if (m_input == Vector2.zero)
         {
-            m_animator.SetBool(m_moveFlagHash, false);
+            //m_animator.SetBool(m_moveFlagHash, false);
             m_rb.linearVelocity = Vector2.zero;
             return;
         }
 
-        m_animator.SetBool(m_moveFlagHash, true);
+        //m_animator.SetBool(m_moveFlagHash, true);
         m_rb.linearVelocity = m_moveSpeed * m_input;
     }
 }

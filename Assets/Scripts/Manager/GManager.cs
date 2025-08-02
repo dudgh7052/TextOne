@@ -13,7 +13,12 @@ public class GManager : MonoBehaviour
     /// <summary>
     /// 인터렉팅 플래그
     /// </summary>
-    [field:SerializeField] public bool IsBoundaryBattleFlag { get; set; } = false;
+    [SerializeField] public bool IsBoundaryBattleFlag { get; set; } = false;
+
+    /// <summary>
+    /// 현재 스테이지 데이터
+    /// </summary>
+    public StageData IsCurStageData { get { return m_curStageData; } }
 
     void Awake()
     {
@@ -38,7 +43,17 @@ public class GManager : MonoBehaviour
         m_nonBattleObjs.SetActive(false);
         m_battleObjs.SetActive(true);
 
-        if (m_curStageData != null) DialogueManager.Instance.StartDialogue(m_curStageData.IsDialogueData, StartBattle);
+        if (m_curStageData != null) DialogueManager.Instance.StartDialogue(m_curStageData.IsStartDialogueData, StartBattle);
+    }
+
+    /// <summary>
+    /// 배틀 종료 대화 시작
+    /// </summary>
+    public void StartEndDialogue()
+    {
+        if (m_curStageData == null || !IsBoundaryBattleFlag) return;
+
+        DialogueManager.Instance.StartDialogue(m_curStageData.IsEndDialogueData, BoundaryBattleEnd);
     }
 
     void StartBattle()
