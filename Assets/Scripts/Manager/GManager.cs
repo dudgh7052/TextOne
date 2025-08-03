@@ -1,9 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GManager : MonoBehaviour
 {
     public static GManager Instance { get; private set; } = null;
+
+    [SerializeField] List<bool> m_clearList = new List<bool>();
+
+    [SerializeField] List<GameObject> m_hpObjList = new List<GameObject>();
 
     [Header("최대 체력")]
     [SerializeField] int m_maxHp = 4;
@@ -94,7 +99,20 @@ public class GManager : MonoBehaviour
     {
         if (m_curStageData == null || !IsBoundaryBattleFlag) return;
 
+        m_clearList[m_curStageData.m_stageIndex] = true;
         DialogueManager.Instance.StartDialogue(m_curStageData.IsEndDialogueData, BoundaryBattleEnd);
+
+        bool _flag = true;
+        for (int i = 0; i < m_clearList.Count; i++)
+        {
+            if (!m_clearList[i])
+            {
+                _flag = false;
+                break;
+            }
+        }
+
+        if (_flag) HappyEnding();
     }
 
     void StartBattle()
@@ -130,6 +148,9 @@ public class GManager : MonoBehaviour
     {
         m_curHp -= argDamage;
 
+        m_hpObjList[m_hpObjList.Count - 1].SetActive(false);
+        m_hpObjList.RemoveAt(m_hpObjList.Count - 1);
+
         if (m_curHp <= 0)
         {
             m_curHp = 0;
@@ -162,4 +183,17 @@ public class GManager : MonoBehaviour
         SceneMoveManager.Instance.ChangeScene("GameOver");
     }
     #endregion
+
+    void HappyEnding()
+    {
+        IsGameOverFlag = true;
+        StartCoroutine(HappyEndingCoroutine());
+    }
+
+    IEnumerator HappyEndingCoroutine()
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        SceneMoveManager.Instance.ChangeScene("HappyEnding");
+    }
 }

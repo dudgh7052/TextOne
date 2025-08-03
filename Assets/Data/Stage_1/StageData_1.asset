@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1cc18ee7693c34b92110b0c324eac3, type: 3}
   m_Name: StageData_1
   m_EditorClassIdentifier: 
+  m_stageIndex: 1
   m_correctWord: Correct
   m_leftSp: {fileID: 21300000, guid: 0820622d941d6c0479cff44ba1f9202a, type: 3}
   m_rightSp: {fileID: 21300000, guid: 559826261a540214f9b231cb6e3db833, type: 3}

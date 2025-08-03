@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StageData", menuName = "Scriptable Objects/StageData")]
 public class StageData : ScriptableObject
 {
+    public int m_stageIndex = 0;
+
     [SerializeField] string m_correctWord = string.Empty;
 
     [Header("SD 캐릭터 스프라이트")]

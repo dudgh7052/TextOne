@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotateSpeed: 30
-  m_spawnRadius: {x: 8, y: 10}
-  m_projectileCount: 8
+  m_spawnRadius: {x: 12, y: 14}
+  m_projectileCount: 6
   m_moveSpeed: 7
   m_projectilePrefab: {fileID: 2476156198807539090, guid: e506935a6cfa29d459cc3aaa42a99df2, type: 3}
