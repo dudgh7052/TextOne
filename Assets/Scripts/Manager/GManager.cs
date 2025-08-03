@@ -1,9 +1,12 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class GManager : MonoBehaviour
 {
     public static GManager Instance { get; private set; } = null;
+
+    [Header("최대 체력")]
+    [SerializeField] int m_maxHp = 4;
 
     StageData m_curStageData = null;
 
@@ -14,10 +17,18 @@ public class GManager : MonoBehaviour
     [SerializeField] Transform m_spawnT = null;
     [SerializeField] GameObject m_wordPrefab = null;
 
+    int m_curHp = 0;
+
+    #region Properties
     /// <summary>
     /// 인터렉팅 플래그
     /// </summary>
-    [SerializeField] public bool IsBoundaryBattleFlag { get; set; } = false;
+    public bool IsBoundaryBattleFlag { get; set; } = false;
+
+    /// <summary>
+    /// 게임오버 플래그
+    /// </summary>
+    public bool IsGameOverFlag { get; set; } = false;
 
     /// <summary>
     /// 현재 스테이지 데이터
@@ -25,17 +36,39 @@ public class GManager : MonoBehaviour
     public StageData IsCurStageData { get { return m_curStageData; } }
 
     /// <summary>
+    /// 플레이어 트랜스폼
+    /// </summary>
+    public Transform IsPlayerT { get; set; }
+
+    /// <summary>
     /// 바운더리 플레이어 트랜스폼
     /// </summary>
     public Transform IsBoundaryPlayerT { get; set; }
+
+    /// <summary>
+    /// 플레이어 스크립트
+    /// </summary>
+    public PlayerController IsPlayerSc { get; set; }
+
+    /// <summary>
+    /// 바운더리 플레이어 스크립트
+    /// </summary>
+    public BoundaryPlayerController IsBoundaryPlayerSc { get; set; }
+    #endregion
 
     void Awake()
     {
         if (GManager.Instance == null)
         {
             Instance = this;
+            Setting();
         }
         else Destroy(gameObject);
+    }
+
+    void Setting()
+    {
+        m_curHp = m_maxHp;
     }
 
     /// <summary>
@@ -85,11 +118,48 @@ public class GManager : MonoBehaviour
         BattleManager.Instance.InitBattle();
     }
 
-
     public void CreateWord()
     {
         //GManager.Instance.CreateWord(); 이거 발사 끝나는 시점에 불러오기
         GameObject _word = Instantiate(m_wordPrefab, m_spawnT.position, Quaternion.identity);
         _word.GetComponent<WordProjectile>().Setting(m_curStageData.IsCorrectWord);
     }
+
+    #region Damaged
+    public void TakeDamage(int argDamage)
+    {
+        m_curHp -= argDamage;
+
+        if (m_curHp <= 0)
+        {
+            m_curHp = 0;
+            GameOver();
+        }
+        else
+        {
+            BoundaryBattleEnd();
+        }
+    }
+
+    public void GameOver()
+    {
+        IsGameOverFlag = true;
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    IEnumerator GameOverCoroutine()
+    {
+        yield return null;
+
+        BoundaryBattleEnd();
+
+        yield return new WaitForSeconds(1.0f);
+
+        IsPlayerT.GetComponent<PlayerController>().PlayDeathAnimation();
+
+        yield return new WaitForSeconds(1.0f);
+
+        SceneMoveManager.Instance.ChangeScene("GameOver");
+    }
+    #endregion
 }

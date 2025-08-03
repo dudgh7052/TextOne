@@ -6,9 +6,9 @@ public class BoundaryPlayerController : MonoBehaviour
     [SerializeField] float m_moveSpeed = 0.0f;
 
     Rigidbody2D m_rb = null;
-    //Animator m_animator = null;
     Vector2 m_input = Vector2.zero;
 
+    //Animator m_animator = null;
     //readonly int m_moveFlagHash = Animator.StringToHash("MoveFlag");
 
     void OnEnable()
@@ -38,6 +38,8 @@ public class BoundaryPlayerController : MonoBehaviour
     void Setting()
     {
         GManager.Instance.IsBoundaryPlayerT = transform;
+        GManager.Instance.IsBoundaryPlayerSc = this;
+
         m_rb = transform.GetComponent<Rigidbody2D>();
         //m_animator = transform.Find("ViewObj").GetComponent<Animator>();
     }

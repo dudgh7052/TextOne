@@ -1,9 +1,9 @@
-using TMPro;
+//using TMPro;
 using UnityEngine;
 
 public class WordProjectile : MonoBehaviour
 {
-    [SerializeField] TextMeshPro m_text = null;
+    //[SerializeField] TextMeshPro m_text = null;
     [SerializeField] float m_moveSpeed = 5.0f;
 
     bool m_settingFlag = false;
@@ -14,7 +14,7 @@ public class WordProjectile : MonoBehaviour
     /// <param name="argDir"></param>
     public void Setting(string argStr)
     {
-        m_text.text = argStr;
+        //m_text.text = argStr;
         m_settingFlag = true;
     }
 

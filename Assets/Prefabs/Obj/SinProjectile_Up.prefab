@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1179700821
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3490dc4290826dd43b60b802376c7561, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a0b20a0d347cfd45adc6d9f722e0d05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -207,5 +207,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc426fea95b83e4baed844c1082b733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_waveAmplitude: 4
-  m_waveFrequency: 4
+  m_waveAmplitude: 2
+  m_waveFrequency: 5

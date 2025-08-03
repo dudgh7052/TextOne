@@ -5,7 +5,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float m_moveSpeed = 0.0f;
 
-
     [Header("Interact Settings")]
     [SerializeField] float m_interactRadius = 0.0f;
     [SerializeField] LayerMask m_interactMask;
@@ -30,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (GManager.Instance.IsBoundaryBattleFlag) return;
+        if (GManager.Instance.IsBoundaryBattleFlag || GManager.Instance.IsGameOverFlag) return;
 
         HandleInput();
         HandleInteract();
@@ -39,13 +38,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GManager.Instance.IsBoundaryBattleFlag) return;
+        if (GManager.Instance.IsBoundaryBattleFlag || GManager.Instance.IsGameOverFlag) return;
 
         Move();
     }
 
     void Setting()
     {
+        GManager.Instance.IsPlayerT = transform;
+        GManager.Instance.IsPlayerSc = this;
+
         m_rb = transform.GetComponent<Rigidbody2D>();
         m_animator = transform.Find("ViewObj").GetComponent<Animator>();
 
@@ -116,5 +118,10 @@ public class PlayerController : MonoBehaviour
                 GManager.Instance.BoundaryBattleStart(_sc.IsStageData);
             }
         }
+    }
+
+    public void PlayDeathAnimation()
+    {
+        m_animator.SetTrigger("Death");
     }
 }

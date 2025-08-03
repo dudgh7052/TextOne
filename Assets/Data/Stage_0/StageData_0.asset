@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: StageData_0
   m_EditorClassIdentifier: 
   m_correctWord: Correct
-  m_stageShooterType: 5
-  m_startDialogueData: {fileID: 11400000, guid: 8ba54380c1dd27b4592873aa38c37ff5, type: 2}
-  m_endDialogueData: {fileID: 11400000, guid: 9e3508f5b381f804fa1da298ca467623, type: 2}
-  m_wordDataList:
-  - {fileID: 11400000, guid: 78f4c52aa579e1f42bd6dcc28ebcd5dd, type: 2}
-  - {fileID: 11400000, guid: 01a824f8a57de6541aec29ef9341ab46, type: 2}
-  - {fileID: 11400000, guid: 2a045b7157babfc499204ccdf447e030, type: 2}
-  - {fileID: 11400000, guid: f2bdc97421caedd488712c35b16b6f1e, type: 2}
-  - {fileID: 11400000, guid: 6d78e970eaf9e3048ae614c337417346, type: 2}
+  m_leftSp: {fileID: 21300000, guid: 0820622d941d6c0479cff44ba1f9202a, type: 3}
+  m_rightSp: {fileID: 21300000, guid: 077337b1347fe5f48b66921ed6d27c38, type: 3}
+  m_stageShooterType: 1
+  m_startDialogueData: {fileID: 11400000, guid: e369fc75212d99f4bac7ca21a8ed4272, type: 2}
+  m_endDialogueData: {fileID: 11400000, guid: 11a8439886d290f479dab5c1e2d2e55e, type: 2}
+  m_wordDataList: []

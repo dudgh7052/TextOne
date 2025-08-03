@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
         {
             if (GManager.Instance.IsBoundaryBattleFlag)
             {
-                GManager.Instance.BoundaryBattleEnd();
+                GManager.Instance.TakeDamage(1);
             }
 
             PoolManager.Instance.Return(gameObject);

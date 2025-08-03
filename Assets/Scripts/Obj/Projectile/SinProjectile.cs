@@ -54,7 +54,7 @@ public class SinProjectile : MonoBehaviour
             if (GManager.Instance.IsBoundaryBattleFlag)
             {
                 //GManager.Instance.StartEndDialogue();
-                GManager.Instance.BoundaryBattleEnd();
+                GManager.Instance.TakeDamage(1);
             }
 
             PoolManager.Instance.Return(gameObject);

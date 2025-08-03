@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8aabb123e9b33943a68983bdf37d2f7, type: 3}
+  m_Name: DialogueData_Start
+  m_EditorClassIdentifier: 
+  m_background: {fileID: 7107687931089781869, guid: a8940b7d01f171046a56151f5f429c62, type: 3}
+  m_leftNPCSprite: {fileID: 21300000, guid: 6362dbf5ba8a1364989509bd5e16032b, type: 3}
+  m_rightNPCSprite: {fileID: 21300000, guid: a4d2c5de4cfa01d47b25c79ccf3ebfa0, type: 3}
+  m_dialogueList:
+  - m_rightNPCFlag: 1
+    m_dialogue: Calm down, David. It's a small surgery. You can do it..
+  - m_rightNPCFlag: 0
+    m_dialogue: My name is not David?
+  - m_rightNPCFlag: 1
+    m_dialogue: Yes, my name is David.
+  - m_rightNPCFlag: 0
+    m_dialogue: Can I trust you...?

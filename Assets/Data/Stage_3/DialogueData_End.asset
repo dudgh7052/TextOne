@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8aabb123e9b33943a68983bdf37d2f7, type: 3}
+  m_Name: DialogueData_End
+  m_EditorClassIdentifier: 
+  m_background: {fileID: -7377295934022830490, guid: a04b1e8b5b33b06409dab60e76073361, type: 3}
+  m_leftNPCSprite: {fileID: 21300000, guid: 72b2316838b688d4fa03b33eabde7212, type: 3}
+  m_rightNPCSprite: {fileID: 21300000, guid: a4d2c5de4cfa01d47b25c79ccf3ebfa0, type: 3}
+  m_dialogueList:
+  - m_rightNPCFlag: 1
+    m_dialogue: 'I wanted you to relax because you didn''t look good. '
+  - m_rightNPCFlag: 0
+    m_dialogue: 'That''s nice of you. Thank you. '
